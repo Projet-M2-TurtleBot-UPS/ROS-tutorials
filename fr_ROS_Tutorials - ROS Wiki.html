@@ -1,0 +1,1177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+<meta name="google-site-verification" content="CjkdY6BqKWAVmQ78_iSq6J7ZZ9AoL7-CjFVBYGg9FU4">
+<link rel="shortcut icon" href="http://wiki.ros.org/custom/favicon.ico" type="image/ico">
+<link rel="stylesheet" href="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/bootstrap.css">
+<script type="text/javascript" src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/4c8610d177"></script><script src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/nr-1044.js"></script><script type="text/javascript" async="" src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/ga.js"></script><script src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/jquery-1.js"></script>
+<script src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/bootstrap.js"></script>
+<script type="text/javascript" src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/sorttable.js"></script>
+<script type="text/javascript" src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/jquery.js"></script>                         
+<script type="text/javascript" src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/seesaw.js"></script> 
+<script type="text/javascript" src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/rosversion.js"></script> 
+<!--script type="text/javascript" src="/custom/libraries/RGraph.common.core.js" ></script Used for metrics only, should be conditional, not at the top-->
+<!--script type="text/javascript" src="/custom/libraries/RGraph.bar.js" ></script same as above -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17821189-2']);
+  _gaq.push(['_setDomainName', 'wiki.ros.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<script type="text/javascript">
+<!-- //
+
+// Version 1.9 stripped by Creativyst SS & JavaScript Compressor v2.2c (http://www.creativyst.com/Prod/3/)
+function tabberObj(argsObj)
+{ var arg; this.div = null; this.classMain = "tabber"; this.classMainLive = "tabberlive"; this.classTab = "tabbertab"; this.classTabDefault = "tabbertabdefault"; this.classNav = "tabbernav"; this.classTabHide = "tabbertabhide"; this.classNavActive = "tabberactive"; this.titleElements = ['h2','h3','h4','h5','h6']; this.titleElementsStripHTML = true; this.removeTitle = true; this.addLinkId = false; this.linkIdFormat = '<tabberid>nav<tabnumberone>'; for (arg in argsObj) { this[arg] = argsObj[arg];}
+this.REclassMain = new RegExp('\\b' + this.classMain + '\\b', 'gi'); this.REclassMainLive = new RegExp('\\b' + this.classMainLive + '\\b', 'gi'); this.REclassTab = new RegExp('\\b' + this.classTab + '\\b', 'gi'); this.REclassTabDefault = new RegExp('\\b' + this.classTabDefault + '\\b', 'gi'); this.REclassTabHide = new RegExp('\\b' + this.classTabHide + '\\b', 'gi'); this.tabs = new Array(); if (this.div) { this.init(this.div); this.div = null;}
+}
+tabberObj.prototype.init = function(e)
+{ var
+childNodes, i, i2, t, defaultTab=0, DOM_ul, DOM_li, DOM_a, aId, headingElement; if (!document.getElementsByTagName) { return false;}
+if (e.id) { this.id = e.id;}
+this.tabs.length = 0; childNodes = e.childNodes; for(i=0; i < childNodes.length; i++) { if(childNodes[i].className &&
+childNodes[i].className.match(this.REclassTab)) { t = new Object(); t.div = childNodes[i]; this.tabs[this.tabs.length] = t; if (childNodes[i].className.match(this.REclassTabDefault)) { defaultTab = this.tabs.length-1;}
+}
+}
+DOM_ul = document.createElement("ul"); DOM_ul.className = this.classNav; for (i=0; i < this.tabs.length; i++) { t = this.tabs[i]; t.headingText = t.div.title; if (this.removeTitle) { t.div.title = '';}
+if (!t.headingText) { for (i2=0; i2<this.titleElements.length; i2++) { headingElement = t.div.getElementsByTagName(this.titleElements[i2])[0]; if (headingElement) { t.headingText = headingElement.innerHTML; if (this.titleElementsStripHTML) { t.headingText.replace(/<br>/gi," "); t.headingText = t.headingText.replace(/<[^>]+>/g,"");}
+break;}
+}
+}
+if (!t.headingText) { t.headingText = i + 1;}
+DOM_li = document.createElement("li"); t.li = DOM_li; DOM_a = document.createElement("a"); DOM_a.appendChild(document.createTextNode(t.headingText)); DOM_a.href = "javascript:void(null);"; DOM_a.title = t.headingText; DOM_a.onclick = this.navClick; DOM_a.tabber = this; DOM_a.tabberIndex = i; if (this.addLinkId && this.linkIdFormat) { aId = this.linkIdFormat; aId = aId.replace(/<tabberid>/gi, this.id); aId = aId.replace(/<tabnumberzero>/gi, i); aId = aId.replace(/<tabnumberone>/gi, i+1); aId = aId.replace(/<tabtitle>/gi, t.headingText.replace(/[^a-zA-Z0-9\-]/gi, '')); DOM_a.id = aId;}
+DOM_li.appendChild(DOM_a); DOM_ul.appendChild(DOM_li);}
+e.insertBefore(DOM_ul, e.firstChild); e.className = e.className.replace(this.REclassMain, this.classMainLive); this.tabShow(defaultTab); if (typeof this.onLoad == 'function') { this.onLoad({tabber:this});}
+return this;}; tabberObj.prototype.navClick = function(event)
+{ var
+rVal, a, self, tabberIndex, onClickArgs; a = this; if (!a.tabber) { return false;}
+self = a.tabber; tabberIndex = a.tabberIndex; a.blur(); if (typeof self.onClick == 'function') { onClickArgs = {'tabber':self, 'index':tabberIndex, 'event':event}; if (!event) { onClickArgs.event = window.event;}
+rVal = self.onClick(onClickArgs); if (rVal === false) { return false;}
+}
+self.tabShow(tabberIndex); return false;}; tabberObj.prototype.tabHideAll = function()
+{ var i; for (i = 0; i < this.tabs.length; i++) { this.tabHide(i);}
+}; tabberObj.prototype.tabHide = function(tabberIndex)
+{ var div; if (!this.tabs[tabberIndex]) { return false;}
+div = this.tabs[tabberIndex].div; if (!div.className.match(this.REclassTabHide)) { div.className += ' ' + this.classTabHide;}
+this.navClearActive(tabberIndex); return this;}; tabberObj.prototype.tabShow = function(tabberIndex)
+{ var div; if (!this.tabs[tabberIndex]) { return false;}
+this.tabHideAll(); div = this.tabs[tabberIndex].div; div.className = div.className.replace(this.REclassTabHide, ''); this.navSetActive(tabberIndex); if (typeof this.onTabDisplay == 'function') { this.onTabDisplay({'tabber':this, 'index':tabberIndex});}
+return this;}; tabberObj.prototype.navSetActive = function(tabberIndex)
+{ this.tabs[tabberIndex].li.className = this.classNavActive; return this;}; tabberObj.prototype.navClearActive = function(tabberIndex)
+{ this.tabs[tabberIndex].li.className = ''; return this;}; function tabberAutomatic(tabberArgs)
+{ var
+tempObj, divs, i; if (!tabberArgs) { tabberArgs = {};}
+tempObj = new tabberObj(tabberArgs); divs = document.getElementsByTagName("div"); for (i=0; i < divs.length; i++) { if (divs[i].className &&
+divs[i].className.match(tempObj.REclassMain)) { tabberArgs.div = divs[i]; divs[i].tabber = new tabberObj(tabberArgs);}
+}
+return this;}
+function tabberAutomaticOnLoad(tabberArgs)
+{ var oldOnLoad; if (!tabberArgs) { tabberArgs = {};}
+oldOnLoad = window.onload; if (typeof window.onload != 'function') { window.onload = function() { tabberAutomatic(tabberArgs);};} else { window.onload = function() { oldOnLoad(); tabberAutomatic(tabberArgs);};}
+}
+if (typeof tabberOptions == 'undefined') { tabberAutomaticOnLoad();} else { if (!tabberOptions['manualStartup']) { tabberAutomaticOnLoad(tabberOptions);}
+}
+
+//-->
+</script>
+
+
+<style type="text/css">
+/*--------------------------------------------------
+  REQUIRED to hide the non-active tab content.
+  But do not hide them in the print stylesheet!
+  --------------------------------------------------*/
+.tabberlive .tabbertabhide {
+ display:none;
+}
+
+/*--------------------------------------------------
+  .tabber = before the tabber interface is set up
+  .tabberlive = after the tabber interface is set up
+  --------------------------------------------------*/
+.tabber {
+}
+.tabberlive {
+ margin-top:1em;
+}
+
+/*--------------------------------------------------
+  ul.tabbernav = the tab navigation list
+  li.tabberactive = the active tab
+  --------------------------------------------------*/
+ul.tabbernav
+{
+ margin:0;
+ padding: 3px 0;
+ border-bottom: 1px solid #778;
+ font: bold 12px Verdana, sans-serif;
+}
+
+ul.tabbernav li
+{
+ list-style: none;
+ margin: 0;
+ display: inline;
+}
+
+ul.tabbernav li a
+{
+ padding: 3px 0.5em;
+ margin-left: 3px;
+ border: 1px solid #778;
+ border-bottom: none;
+ background: #DDE;
+ text-decoration: none;
+}
+
+ul.tabbernav li a:link { color: #448; }
+ul.tabbernav li a:visited { color: #667; }
+
+ul.tabbernav li a:hover
+{
+ color: #000;
+ background: #AAE;
+ border-color: #227;
+}
+
+ul.tabbernav li.tabberactive a
+{
+ background-color: #fff;
+ border-bottom: 1px solid #fff;
+}
+
+ul.tabbernav li.tabberactive a:hover
+{
+ color: #000;
+ background: white;
+ border-bottom: 1px solid white;
+}
+
+/*--------------------------------------------------
+  .tabbertab = the tab content
+  Add style only after the tabber interface is set up (.tabberlive)
+  --------------------------------------------------*/
+.tabberlive .tabbertab {
+ padding:5px;
+ border:1px solid #aaa;
+ border-top:0;
+
+ /* If you don't want the tab size changing whenever a tab is changed
+    you can set a fixed height */
+
+ /* height:200px; */
+
+ /* If you set a fix height set overflow to auto and you will get a
+    scrollbar when necessary */
+
+ /* overflow:auto; */
+}
+
+/* If desired, hide the heading since a heading is provided by the tab */
+.tabberlive .tabbertab h2 {
+ display:none;
+}
+.tabberlive .tabbertab h3 {
+ display:none;
+}
+
+/* Example of using an ID to set different styles for the tabs on the page */
+.tabberlive#tab1 {
+}
+.tabberlive#tab2 {
+}
+.tabberlive#tab2 .tabbertab {
+ height:200px;
+ overflow:auto;
+}
+</style>
+
+
+<script type="text/javascript">
+<!-- //
+
+// Version 1.9 stripped by Creativyst SS & JavaScript Compressor v2.2c (http://www.creativyst.com/Prod/3/)
+function tabberObj(argsObj)
+{ var arg; this.div = null; this.classMain = "tabber"; this.classMainLive = "tabberlive"; this.classTab = "tabbertab"; this.classTabDefault = "tabbertabdefault"; this.classNav = "tabbernav"; this.classTabHide = "tabbertabhide"; this.classNavActive = "tabberactive"; this.titleElements = ['h2','h3','h4','h5','h6']; this.titleElementsStripHTML = true; this.removeTitle = true; this.addLinkId = false; this.linkIdFormat = '<tabberid>nav<tabnumberone>'; for (arg in argsObj) { this[arg] = argsObj[arg];}
+this.REclassMain = new RegExp('\\b' + this.classMain + '\\b', 'gi'); this.REclassMainLive = new RegExp('\\b' + this.classMainLive + '\\b', 'gi'); this.REclassTab = new RegExp('\\b' + this.classTab + '\\b', 'gi'); this.REclassTabDefault = new RegExp('\\b' + this.classTabDefault + '\\b', 'gi'); this.REclassTabHide = new RegExp('\\b' + this.classTabHide + '\\b', 'gi'); this.tabs = new Array(); if (this.div) { this.init(this.div); this.div = null;}
+}
+tabberObj.prototype.init = function(e)
+{ var
+childNodes, i, i2, t, defaultTab=0, DOM_ul, DOM_li, DOM_a, aId, headingElement; if (!document.getElementsByTagName) { return false;}
+if (e.id) { this.id = e.id;}
+this.tabs.length = 0; childNodes = e.childNodes; for(i=0; i < childNodes.length; i++) { if(childNodes[i].className &&
+childNodes[i].className.match(this.REclassTab)) { t = new Object(); t.div = childNodes[i]; this.tabs[this.tabs.length] = t; if (childNodes[i].className.match(this.REclassTabDefault)) { defaultTab = this.tabs.length-1;}
+}
+}
+DOM_ul = document.createElement("ul"); DOM_ul.className = this.classNav; for (i=0; i < this.tabs.length; i++) { t = this.tabs[i]; t.headingText = t.div.title; if (this.removeTitle) { t.div.title = '';}
+if (!t.headingText) { for (i2=0; i2<this.titleElements.length; i2++) { headingElement = t.div.getElementsByTagName(this.titleElements[i2])[0]; if (headingElement) { t.headingText = headingElement.innerHTML; if (this.titleElementsStripHTML) { t.headingText.replace(/<br>/gi," "); t.headingText = t.headingText.replace(/<[^>]+>/g,"");}
+break;}
+}
+}
+if (!t.headingText) { t.headingText = i + 1;}
+DOM_li = document.createElement("li"); t.li = DOM_li; DOM_a = document.createElement("a"); DOM_a.appendChild(document.createTextNode(t.headingText)); DOM_a.href = "javascript:void(null);"; DOM_a.title = t.headingText; DOM_a.onclick = this.navClick; DOM_a.tabber = this; DOM_a.tabberIndex = i; if (this.addLinkId && this.linkIdFormat) { aId = this.linkIdFormat; aId = aId.replace(/<tabberid>/gi, this.id); aId = aId.replace(/<tabnumberzero>/gi, i); aId = aId.replace(/<tabnumberone>/gi, i+1); aId = aId.replace(/<tabtitle>/gi, t.headingText.replace(/[^a-zA-Z0-9\-]/gi, '')); DOM_a.id = aId;}
+DOM_li.appendChild(DOM_a); DOM_ul.appendChild(DOM_li);}
+e.insertBefore(DOM_ul, e.firstChild); e.className = e.className.replace(this.REclassMain, this.classMainLive); this.tabShow(defaultTab); if (typeof this.onLoad == 'function') { this.onLoad({tabber:this});}
+return this;}; tabberObj.prototype.navClick = function(event)
+{ var
+rVal, a, self, tabberIndex, onClickArgs; a = this; if (!a.tabber) { return false;}
+self = a.tabber; tabberIndex = a.tabberIndex; a.blur(); if (typeof self.onClick == 'function') { onClickArgs = {'tabber':self, 'index':tabberIndex, 'event':event}; if (!event) { onClickArgs.event = window.event;}
+rVal = self.onClick(onClickArgs); if (rVal === false) { return false;}
+}
+self.tabShow(tabberIndex); return false;}; tabberObj.prototype.tabHideAll = function()
+{ var i; for (i = 0; i < this.tabs.length; i++) { this.tabHide(i);}
+}; tabberObj.prototype.tabHide = function(tabberIndex)
+{ var div; if (!this.tabs[tabberIndex]) { return false;}
+div = this.tabs[tabberIndex].div; if (!div.className.match(this.REclassTabHide)) { div.className += ' ' + this.classTabHide;}
+this.navClearActive(tabberIndex); return this;}; tabberObj.prototype.tabShow = function(tabberIndex)
+{ var div; if (!this.tabs[tabberIndex]) { return false;}
+this.tabHideAll(); div = this.tabs[tabberIndex].div; div.className = div.className.replace(this.REclassTabHide, ''); this.navSetActive(tabberIndex); if (typeof this.onTabDisplay == 'function') { this.onTabDisplay({'tabber':this, 'index':tabberIndex});}
+return this;}; tabberObj.prototype.navSetActive = function(tabberIndex)
+{ this.tabs[tabberIndex].li.className = this.classNavActive; return this;}; tabberObj.prototype.navClearActive = function(tabberIndex)
+{ this.tabs[tabberIndex].li.className = ''; return this;}; function tabberAutomatic(tabberArgs)
+{ var
+tempObj, divs, i; if (!tabberArgs) { tabberArgs = {};}
+tempObj = new tabberObj(tabberArgs); divs = document.getElementsByTagName("div"); for (i=0; i < divs.length; i++) { if (divs[i].className &&
+divs[i].className.match(tempObj.REclassMain)) { tabberArgs.div = divs[i]; divs[i].tabber = new tabberObj(tabberArgs);}
+}
+return this;}
+function tabberAutomaticOnLoad(tabberArgs)
+{ var oldOnLoad; if (!tabberArgs) { tabberArgs = {};}
+oldOnLoad = window.onload; if (typeof window.onload != 'function') { window.onload = function() { tabberAutomatic(tabberArgs);};} else { window.onload = function() { oldOnLoad(); tabberAutomatic(tabberArgs);};}
+}
+if (typeof tabberOptions == 'undefined') { tabberAutomaticOnLoad();} else { if (!tabberOptions['manualStartup']) { tabberAutomaticOnLoad(tabberOptions);}
+}
+
+//-->
+</script>
+
+
+<style type="text/css">
+/*--------------------------------------------------
+  REQUIRED to hide the non-active tab content.
+  But do not hide them in the print stylesheet!
+  --------------------------------------------------*/
+.tabberlive .tabbertabhide {
+ display:none;
+}
+
+/*--------------------------------------------------
+  .tabber = before the tabber interface is set up
+  .tabberlive = after the tabber interface is set up
+  --------------------------------------------------*/
+.tabber {
+}
+.tabberlive {
+ margin-top:1em;
+}
+
+/*--------------------------------------------------
+  ul.tabbernav = the tab navigation list
+  li.tabberactive = the active tab
+  --------------------------------------------------*/
+ul.tabbernav
+{
+ margin:0;
+ padding: 3px 0;
+ border-bottom: 1px solid #778;
+ font: bold 12px Verdana, sans-serif;
+}
+
+ul.tabbernav li
+{
+ list-style: none;
+ margin: 0;
+ display: inline;
+}
+
+ul.tabbernav li a
+{
+ padding: 3px 0.5em;
+ margin-left: 3px;
+ border: 1px solid #778;
+ border-bottom: none;
+ background: #DDE;
+ text-decoration: none;
+}
+
+ul.tabbernav li a:link { color: #448; }
+ul.tabbernav li a:visited { color: #667; }
+
+ul.tabbernav li a:hover
+{
+ color: #000;
+ background: #AAE;
+ border-color: #227;
+}
+
+ul.tabbernav li.tabberactive a
+{
+ background-color: #fff;
+ border-bottom: 1px solid #fff;
+}
+
+ul.tabbernav li.tabberactive a:hover
+{
+ color: #000;
+ background: white;
+ border-bottom: 1px solid white;
+}
+
+/*--------------------------------------------------
+  .tabbertab = the tab content
+  Add style only after the tabber interface is set up (.tabberlive)
+  --------------------------------------------------*/
+.tabberlive .tabbertab {
+ padding:5px;
+ border:1px solid #aaa;
+ border-top:0;
+
+ /* If you don't want the tab size changing whenever a tab is changed
+    you can set a fixed height */
+
+ /* height:200px; */
+
+ /* If you set a fix height set overflow to auto and you will get a
+    scrollbar when necessary */
+
+ /* overflow:auto; */
+}
+
+/* If desired, hide the heading since a heading is provided by the tab */
+.tabberlive .tabbertab h2 {
+ display:none;
+}
+.tabberlive .tabbertab h3 {
+ display:none;
+}
+
+/* Example of using an ID to set different styles for the tabs on the page */
+.tabberlive#tab1 {
+}
+.tabberlive#tab2 {
+}
+.tabberlive#tab2 .tabbertab {
+ height:200px;
+ overflow:auto;
+}
+</style>
+
+
+<script type="text/javascript">
+<!-- //
+
+// Version 1.9 stripped by Creativyst SS & JavaScript Compressor v2.2c (http://www.creativyst.com/Prod/3/)
+function tabberObj(argsObj)
+{ var arg; this.div = null; this.classMain = "tabber"; this.classMainLive = "tabberlive"; this.classTab = "tabbertab"; this.classTabDefault = "tabbertabdefault"; this.classNav = "tabbernav"; this.classTabHide = "tabbertabhide"; this.classNavActive = "tabberactive"; this.titleElements = ['h2','h3','h4','h5','h6']; this.titleElementsStripHTML = true; this.removeTitle = true; this.addLinkId = false; this.linkIdFormat = '<tabberid>nav<tabnumberone>'; for (arg in argsObj) { this[arg] = argsObj[arg];}
+this.REclassMain = new RegExp('\\b' + this.classMain + '\\b', 'gi'); this.REclassMainLive = new RegExp('\\b' + this.classMainLive + '\\b', 'gi'); this.REclassTab = new RegExp('\\b' + this.classTab + '\\b', 'gi'); this.REclassTabDefault = new RegExp('\\b' + this.classTabDefault + '\\b', 'gi'); this.REclassTabHide = new RegExp('\\b' + this.classTabHide + '\\b', 'gi'); this.tabs = new Array(); if (this.div) { this.init(this.div); this.div = null;}
+}
+tabberObj.prototype.init = function(e)
+{ var
+childNodes, i, i2, t, defaultTab=0, DOM_ul, DOM_li, DOM_a, aId, headingElement; if (!document.getElementsByTagName) { return false;}
+if (e.id) { this.id = e.id;}
+this.tabs.length = 0; childNodes = e.childNodes; for(i=0; i < childNodes.length; i++) { if(childNodes[i].className &&
+childNodes[i].className.match(this.REclassTab)) { t = new Object(); t.div = childNodes[i]; this.tabs[this.tabs.length] = t; if (childNodes[i].className.match(this.REclassTabDefault)) { defaultTab = this.tabs.length-1;}
+}
+}
+DOM_ul = document.createElement("ul"); DOM_ul.className = this.classNav; for (i=0; i < this.tabs.length; i++) { t = this.tabs[i]; t.headingText = t.div.title; if (this.removeTitle) { t.div.title = '';}
+if (!t.headingText) { for (i2=0; i2<this.titleElements.length; i2++) { headingElement = t.div.getElementsByTagName(this.titleElements[i2])[0]; if (headingElement) { t.headingText = headingElement.innerHTML; if (this.titleElementsStripHTML) { t.headingText.replace(/<br>/gi," "); t.headingText = t.headingText.replace(/<[^>]+>/g,"");}
+break;}
+}
+}
+if (!t.headingText) { t.headingText = i + 1;}
+DOM_li = document.createElement("li"); t.li = DOM_li; DOM_a = document.createElement("a"); DOM_a.appendChild(document.createTextNode(t.headingText)); DOM_a.href = "javascript:void(null);"; DOM_a.title = t.headingText; DOM_a.onclick = this.navClick; DOM_a.tabber = this; DOM_a.tabberIndex = i; if (this.addLinkId && this.linkIdFormat) { aId = this.linkIdFormat; aId = aId.replace(/<tabberid>/gi, this.id); aId = aId.replace(/<tabnumberzero>/gi, i); aId = aId.replace(/<tabnumberone>/gi, i+1); aId = aId.replace(/<tabtitle>/gi, t.headingText.replace(/[^a-zA-Z0-9\-]/gi, '')); DOM_a.id = aId;}
+DOM_li.appendChild(DOM_a); DOM_ul.appendChild(DOM_li);}
+e.insertBefore(DOM_ul, e.firstChild); e.className = e.className.replace(this.REclassMain, this.classMainLive); this.tabShow(defaultTab); if (typeof this.onLoad == 'function') { this.onLoad({tabber:this});}
+return this;}; tabberObj.prototype.navClick = function(event)
+{ var
+rVal, a, self, tabberIndex, onClickArgs; a = this; if (!a.tabber) { return false;}
+self = a.tabber; tabberIndex = a.tabberIndex; a.blur(); if (typeof self.onClick == 'function') { onClickArgs = {'tabber':self, 'index':tabberIndex, 'event':event}; if (!event) { onClickArgs.event = window.event;}
+rVal = self.onClick(onClickArgs); if (rVal === false) { return false;}
+}
+self.tabShow(tabberIndex); return false;}; tabberObj.prototype.tabHideAll = function()
+{ var i; for (i = 0; i < this.tabs.length; i++) { this.tabHide(i);}
+}; tabberObj.prototype.tabHide = function(tabberIndex)
+{ var div; if (!this.tabs[tabberIndex]) { return false;}
+div = this.tabs[tabberIndex].div; if (!div.className.match(this.REclassTabHide)) { div.className += ' ' + this.classTabHide;}
+this.navClearActive(tabberIndex); return this;}; tabberObj.prototype.tabShow = function(tabberIndex)
+{ var div; if (!this.tabs[tabberIndex]) { return false;}
+this.tabHideAll(); div = this.tabs[tabberIndex].div; div.className = div.className.replace(this.REclassTabHide, ''); this.navSetActive(tabberIndex); if (typeof this.onTabDisplay == 'function') { this.onTabDisplay({'tabber':this, 'index':tabberIndex});}
+return this;}; tabberObj.prototype.navSetActive = function(tabberIndex)
+{ this.tabs[tabberIndex].li.className = this.classNavActive; return this;}; tabberObj.prototype.navClearActive = function(tabberIndex)
+{ this.tabs[tabberIndex].li.className = ''; return this;}; function tabberAutomatic(tabberArgs)
+{ var
+tempObj, divs, i; if (!tabberArgs) { tabberArgs = {};}
+tempObj = new tabberObj(tabberArgs); divs = document.getElementsByTagName("div"); for (i=0; i < divs.length; i++) { if (divs[i].className &&
+divs[i].className.match(tempObj.REclassMain)) { tabberArgs.div = divs[i]; divs[i].tabber = new tabberObj(tabberArgs);}
+}
+return this;}
+function tabberAutomaticOnLoad(tabberArgs)
+{ var oldOnLoad; if (!tabberArgs) { tabberArgs = {};}
+oldOnLoad = window.onload; if (typeof window.onload != 'function') { window.onload = function() { tabberAutomatic(tabberArgs);};} else { window.onload = function() { oldOnLoad(); tabberAutomatic(tabberArgs);};}
+}
+if (typeof tabberOptions == 'undefined') { tabberAutomaticOnLoad();} else { if (!tabberOptions['manualStartup']) { tabberAutomaticOnLoad(tabberOptions);}
+}
+
+//-->
+</script>
+
+
+<style type="text/css">
+/*--------------------------------------------------
+  REQUIRED to hide the non-active tab content.
+  But do not hide them in the print stylesheet!
+  --------------------------------------------------*/
+.tabberlive .tabbertabhide {
+ display:none;
+}
+
+/*--------------------------------------------------
+  .tabber = before the tabber interface is set up
+  .tabberlive = after the tabber interface is set up
+  --------------------------------------------------*/
+.tabber {
+}
+.tabberlive {
+ margin-top:1em;
+}
+
+/*--------------------------------------------------
+  ul.tabbernav = the tab navigation list
+  li.tabberactive = the active tab
+  --------------------------------------------------*/
+ul.tabbernav
+{
+ margin:0;
+ padding: 3px 0;
+ border-bottom: 1px solid #778;
+ font: bold 12px Verdana, sans-serif;
+}
+
+ul.tabbernav li
+{
+ list-style: none;
+ margin: 0;
+ display: inline;
+}
+
+ul.tabbernav li a
+{
+ padding: 3px 0.5em;
+ margin-left: 3px;
+ border: 1px solid #778;
+ border-bottom: none;
+ background: #DDE;
+ text-decoration: none;
+}
+
+ul.tabbernav li a:link { color: #448; }
+ul.tabbernav li a:visited { color: #667; }
+
+ul.tabbernav li a:hover
+{
+ color: #000;
+ background: #AAE;
+ border-color: #227;
+}
+
+ul.tabbernav li.tabberactive a
+{
+ background-color: #fff;
+ border-bottom: 1px solid #fff;
+}
+
+ul.tabbernav li.tabberactive a:hover
+{
+ color: #000;
+ background: white;
+ border-bottom: 1px solid white;
+}
+
+/*--------------------------------------------------
+  .tabbertab = the tab content
+  Add style only after the tabber interface is set up (.tabberlive)
+  --------------------------------------------------*/
+.tabberlive .tabbertab {
+ padding:5px;
+ border:1px solid #aaa;
+ border-top:0;
+
+ /* If you don't want the tab size changing whenever a tab is changed
+    you can set a fixed height */
+
+ /* height:200px; */
+
+ /* If you set a fix height set overflow to auto and you will get a
+    scrollbar when necessary */
+
+ /* overflow:auto; */
+}
+
+/* If desired, hide the heading since a heading is provided by the tab */
+.tabberlive .tabbertab h2 {
+ display:none;
+}
+.tabberlive .tabbertab h3 {
+ display:none;
+}
+
+/* Example of using an ID to set different styles for the tabs on the page */
+.tabberlive#tab1 {
+}
+.tabberlive#tab2 {
+}
+.tabberlive#tab2 .tabbertab {
+ height:200px;
+ overflow:auto;
+}
+</style>
+
+
+<script type="text/javascript">
+<!-- //
+
+// Version 1.9 stripped by Creativyst SS & JavaScript Compressor v2.2c (http://www.creativyst.com/Prod/3/)
+function tabberObj(argsObj)
+{ var arg; this.div = null; this.classMain = "tabber"; this.classMainLive = "tabberlive"; this.classTab = "tabbertab"; this.classTabDefault = "tabbertabdefault"; this.classNav = "tabbernav"; this.classTabHide = "tabbertabhide"; this.classNavActive = "tabberactive"; this.titleElements = ['h2','h3','h4','h5','h6']; this.titleElementsStripHTML = true; this.removeTitle = true; this.addLinkId = false; this.linkIdFormat = '<tabberid>nav<tabnumberone>'; for (arg in argsObj) { this[arg] = argsObj[arg];}
+this.REclassMain = new RegExp('\\b' + this.classMain + '\\b', 'gi'); this.REclassMainLive = new RegExp('\\b' + this.classMainLive + '\\b', 'gi'); this.REclassTab = new RegExp('\\b' + this.classTab + '\\b', 'gi'); this.REclassTabDefault = new RegExp('\\b' + this.classTabDefault + '\\b', 'gi'); this.REclassTabHide = new RegExp('\\b' + this.classTabHide + '\\b', 'gi'); this.tabs = new Array(); if (this.div) { this.init(this.div); this.div = null;}
+}
+tabberObj.prototype.init = function(e)
+{ var
+childNodes, i, i2, t, defaultTab=0, DOM_ul, DOM_li, DOM_a, aId, headingElement; if (!document.getElementsByTagName) { return false;}
+if (e.id) { this.id = e.id;}
+this.tabs.length = 0; childNodes = e.childNodes; for(i=0; i < childNodes.length; i++) { if(childNodes[i].className &&
+childNodes[i].className.match(this.REclassTab)) { t = new Object(); t.div = childNodes[i]; this.tabs[this.tabs.length] = t; if (childNodes[i].className.match(this.REclassTabDefault)) { defaultTab = this.tabs.length-1;}
+}
+}
+DOM_ul = document.createElement("ul"); DOM_ul.className = this.classNav; for (i=0; i < this.tabs.length; i++) { t = this.tabs[i]; t.headingText = t.div.title; if (this.removeTitle) { t.div.title = '';}
+if (!t.headingText) { for (i2=0; i2<this.titleElements.length; i2++) { headingElement = t.div.getElementsByTagName(this.titleElements[i2])[0]; if (headingElement) { t.headingText = headingElement.innerHTML; if (this.titleElementsStripHTML) { t.headingText.replace(/<br>/gi," "); t.headingText = t.headingText.replace(/<[^>]+>/g,"");}
+break;}
+}
+}
+if (!t.headingText) { t.headingText = i + 1;}
+DOM_li = document.createElement("li"); t.li = DOM_li; DOM_a = document.createElement("a"); DOM_a.appendChild(document.createTextNode(t.headingText)); DOM_a.href = "javascript:void(null);"; DOM_a.title = t.headingText; DOM_a.onclick = this.navClick; DOM_a.tabber = this; DOM_a.tabberIndex = i; if (this.addLinkId && this.linkIdFormat) { aId = this.linkIdFormat; aId = aId.replace(/<tabberid>/gi, this.id); aId = aId.replace(/<tabnumberzero>/gi, i); aId = aId.replace(/<tabnumberone>/gi, i+1); aId = aId.replace(/<tabtitle>/gi, t.headingText.replace(/[^a-zA-Z0-9\-]/gi, '')); DOM_a.id = aId;}
+DOM_li.appendChild(DOM_a); DOM_ul.appendChild(DOM_li);}
+e.insertBefore(DOM_ul, e.firstChild); e.className = e.className.replace(this.REclassMain, this.classMainLive); this.tabShow(defaultTab); if (typeof this.onLoad == 'function') { this.onLoad({tabber:this});}
+return this;}; tabberObj.prototype.navClick = function(event)
+{ var
+rVal, a, self, tabberIndex, onClickArgs; a = this; if (!a.tabber) { return false;}
+self = a.tabber; tabberIndex = a.tabberIndex; a.blur(); if (typeof self.onClick == 'function') { onClickArgs = {'tabber':self, 'index':tabberIndex, 'event':event}; if (!event) { onClickArgs.event = window.event;}
+rVal = self.onClick(onClickArgs); if (rVal === false) { return false;}
+}
+self.tabShow(tabberIndex); return false;}; tabberObj.prototype.tabHideAll = function()
+{ var i; for (i = 0; i < this.tabs.length; i++) { this.tabHide(i);}
+}; tabberObj.prototype.tabHide = function(tabberIndex)
+{ var div; if (!this.tabs[tabberIndex]) { return false;}
+div = this.tabs[tabberIndex].div; if (!div.className.match(this.REclassTabHide)) { div.className += ' ' + this.classTabHide;}
+this.navClearActive(tabberIndex); return this;}; tabberObj.prototype.tabShow = function(tabberIndex)
+{ var div; if (!this.tabs[tabberIndex]) { return false;}
+this.tabHideAll(); div = this.tabs[tabberIndex].div; div.className = div.className.replace(this.REclassTabHide, ''); this.navSetActive(tabberIndex); if (typeof this.onTabDisplay == 'function') { this.onTabDisplay({'tabber':this, 'index':tabberIndex});}
+return this;}; tabberObj.prototype.navSetActive = function(tabberIndex)
+{ this.tabs[tabberIndex].li.className = this.classNavActive; return this;}; tabberObj.prototype.navClearActive = function(tabberIndex)
+{ this.tabs[tabberIndex].li.className = ''; return this;}; function tabberAutomatic(tabberArgs)
+{ var
+tempObj, divs, i; if (!tabberArgs) { tabberArgs = {};}
+tempObj = new tabberObj(tabberArgs); divs = document.getElementsByTagName("div"); for (i=0; i < divs.length; i++) { if (divs[i].className &&
+divs[i].className.match(tempObj.REclassMain)) { tabberArgs.div = divs[i]; divs[i].tabber = new tabberObj(tabberArgs);}
+}
+return this;}
+function tabberAutomaticOnLoad(tabberArgs)
+{ var oldOnLoad; if (!tabberArgs) { tabberArgs = {};}
+oldOnLoad = window.onload; if (typeof window.onload != 'function') { window.onload = function() { tabberAutomatic(tabberArgs);};} else { window.onload = function() { oldOnLoad(); tabberAutomatic(tabberArgs);};}
+}
+if (typeof tabberOptions == 'undefined') { tabberAutomaticOnLoad();} else { if (!tabberOptions['manualStartup']) { tabberAutomaticOnLoad(tabberOptions);}
+}
+
+//-->
+</script>
+
+
+<style type="text/css">
+/*--------------------------------------------------
+  REQUIRED to hide the non-active tab content.
+  But do not hide them in the print stylesheet!
+  --------------------------------------------------*/
+.tabberlive .tabbertabhide {
+ display:none;
+}
+
+/*--------------------------------------------------
+  .tabber = before the tabber interface is set up
+  .tabberlive = after the tabber interface is set up
+  --------------------------------------------------*/
+.tabber {
+}
+.tabberlive {
+ margin-top:1em;
+}
+
+/*--------------------------------------------------
+  ul.tabbernav = the tab navigation list
+  li.tabberactive = the active tab
+  --------------------------------------------------*/
+ul.tabbernav
+{
+ margin:0;
+ padding: 3px 0;
+ border-bottom: 1px solid #778;
+ font: bold 12px Verdana, sans-serif;
+}
+
+ul.tabbernav li
+{
+ list-style: none;
+ margin: 0;
+ display: inline;
+}
+
+ul.tabbernav li a
+{
+ padding: 3px 0.5em;
+ margin-left: 3px;
+ border: 1px solid #778;
+ border-bottom: none;
+ background: #DDE;
+ text-decoration: none;
+}
+
+ul.tabbernav li a:link { color: #448; }
+ul.tabbernav li a:visited { color: #667; }
+
+ul.tabbernav li a:hover
+{
+ color: #000;
+ background: #AAE;
+ border-color: #227;
+}
+
+ul.tabbernav li.tabberactive a
+{
+ background-color: #fff;
+ border-bottom: 1px solid #fff;
+}
+
+ul.tabbernav li.tabberactive a:hover
+{
+ color: #000;
+ background: white;
+ border-bottom: 1px solid white;
+}
+
+/*--------------------------------------------------
+  .tabbertab = the tab content
+  Add style only after the tabber interface is set up (.tabberlive)
+  --------------------------------------------------*/
+.tabberlive .tabbertab {
+ padding:5px;
+ border:1px solid #aaa;
+ border-top:0;
+
+ /* If you don't want the tab size changing whenever a tab is changed
+    you can set a fixed height */
+
+ /* height:200px; */
+
+ /* If you set a fix height set overflow to auto and you will get a
+    scrollbar when necessary */
+
+ /* overflow:auto; */
+}
+
+/* If desired, hide the heading since a heading is provided by the tab */
+.tabberlive .tabbertab h2 {
+ display:none;
+}
+.tabberlive .tabbertab h3 {
+ display:none;
+}
+
+/* Example of using an ID to set different styles for the tabs on the page */
+.tabberlive#tab1 {
+}
+.tabberlive#tab2 {
+}
+.tabberlive#tab2 .tabbertab {
+ height:200px;
+ overflow:auto;
+}
+</style>
+
+
+<script type="text/javascript">
+<!-- //
+
+// Version 1.9 stripped by Creativyst SS & JavaScript Compressor v2.2c (http://www.creativyst.com/Prod/3/)
+function tabberObj(argsObj)
+{ var arg; this.div = null; this.classMain = "tabber"; this.classMainLive = "tabberlive"; this.classTab = "tabbertab"; this.classTabDefault = "tabbertabdefault"; this.classNav = "tabbernav"; this.classTabHide = "tabbertabhide"; this.classNavActive = "tabberactive"; this.titleElements = ['h2','h3','h4','h5','h6']; this.titleElementsStripHTML = true; this.removeTitle = true; this.addLinkId = false; this.linkIdFormat = '<tabberid>nav<tabnumberone>'; for (arg in argsObj) { this[arg] = argsObj[arg];}
+this.REclassMain = new RegExp('\\b' + this.classMain + '\\b', 'gi'); this.REclassMainLive = new RegExp('\\b' + this.classMainLive + '\\b', 'gi'); this.REclassTab = new RegExp('\\b' + this.classTab + '\\b', 'gi'); this.REclassTabDefault = new RegExp('\\b' + this.classTabDefault + '\\b', 'gi'); this.REclassTabHide = new RegExp('\\b' + this.classTabHide + '\\b', 'gi'); this.tabs = new Array(); if (this.div) { this.init(this.div); this.div = null;}
+}
+tabberObj.prototype.init = function(e)
+{ var
+childNodes, i, i2, t, defaultTab=0, DOM_ul, DOM_li, DOM_a, aId, headingElement; if (!document.getElementsByTagName) { return false;}
+if (e.id) { this.id = e.id;}
+this.tabs.length = 0; childNodes = e.childNodes; for(i=0; i < childNodes.length; i++) { if(childNodes[i].className &&
+childNodes[i].className.match(this.REclassTab)) { t = new Object(); t.div = childNodes[i]; this.tabs[this.tabs.length] = t; if (childNodes[i].className.match(this.REclassTabDefault)) { defaultTab = this.tabs.length-1;}
+}
+}
+DOM_ul = document.createElement("ul"); DOM_ul.className = this.classNav; for (i=0; i < this.tabs.length; i++) { t = this.tabs[i]; t.headingText = t.div.title; if (this.removeTitle) { t.div.title = '';}
+if (!t.headingText) { for (i2=0; i2<this.titleElements.length; i2++) { headingElement = t.div.getElementsByTagName(this.titleElements[i2])[0]; if (headingElement) { t.headingText = headingElement.innerHTML; if (this.titleElementsStripHTML) { t.headingText.replace(/<br>/gi," "); t.headingText = t.headingText.replace(/<[^>]+>/g,"");}
+break;}
+}
+}
+if (!t.headingText) { t.headingText = i + 1;}
+DOM_li = document.createElement("li"); t.li = DOM_li; DOM_a = document.createElement("a"); DOM_a.appendChild(document.createTextNode(t.headingText)); DOM_a.href = "javascript:void(null);"; DOM_a.title = t.headingText; DOM_a.onclick = this.navClick; DOM_a.tabber = this; DOM_a.tabberIndex = i; if (this.addLinkId && this.linkIdFormat) { aId = this.linkIdFormat; aId = aId.replace(/<tabberid>/gi, this.id); aId = aId.replace(/<tabnumberzero>/gi, i); aId = aId.replace(/<tabnumberone>/gi, i+1); aId = aId.replace(/<tabtitle>/gi, t.headingText.replace(/[^a-zA-Z0-9\-]/gi, '')); DOM_a.id = aId;}
+DOM_li.appendChild(DOM_a); DOM_ul.appendChild(DOM_li);}
+e.insertBefore(DOM_ul, e.firstChild); e.className = e.className.replace(this.REclassMain, this.classMainLive); this.tabShow(defaultTab); if (typeof this.onLoad == 'function') { this.onLoad({tabber:this});}
+return this;}; tabberObj.prototype.navClick = function(event)
+{ var
+rVal, a, self, tabberIndex, onClickArgs; a = this; if (!a.tabber) { return false;}
+self = a.tabber; tabberIndex = a.tabberIndex; a.blur(); if (typeof self.onClick == 'function') { onClickArgs = {'tabber':self, 'index':tabberIndex, 'event':event}; if (!event) { onClickArgs.event = window.event;}
+rVal = self.onClick(onClickArgs); if (rVal === false) { return false;}
+}
+self.tabShow(tabberIndex); return false;}; tabberObj.prototype.tabHideAll = function()
+{ var i; for (i = 0; i < this.tabs.length; i++) { this.tabHide(i);}
+}; tabberObj.prototype.tabHide = function(tabberIndex)
+{ var div; if (!this.tabs[tabberIndex]) { return false;}
+div = this.tabs[tabberIndex].div; if (!div.className.match(this.REclassTabHide)) { div.className += ' ' + this.classTabHide;}
+this.navClearActive(tabberIndex); return this;}; tabberObj.prototype.tabShow = function(tabberIndex)
+{ var div; if (!this.tabs[tabberIndex]) { return false;}
+this.tabHideAll(); div = this.tabs[tabberIndex].div; div.className = div.className.replace(this.REclassTabHide, ''); this.navSetActive(tabberIndex); if (typeof this.onTabDisplay == 'function') { this.onTabDisplay({'tabber':this, 'index':tabberIndex});}
+return this;}; tabberObj.prototype.navSetActive = function(tabberIndex)
+{ this.tabs[tabberIndex].li.className = this.classNavActive; return this;}; tabberObj.prototype.navClearActive = function(tabberIndex)
+{ this.tabs[tabberIndex].li.className = ''; return this;}; function tabberAutomatic(tabberArgs)
+{ var
+tempObj, divs, i; if (!tabberArgs) { tabberArgs = {};}
+tempObj = new tabberObj(tabberArgs); divs = document.getElementsByTagName("div"); for (i=0; i < divs.length; i++) { if (divs[i].className &&
+divs[i].className.match(tempObj.REclassMain)) { tabberArgs.div = divs[i]; divs[i].tabber = new tabberObj(tabberArgs);}
+}
+return this;}
+function tabberAutomaticOnLoad(tabberArgs)
+{ var oldOnLoad; if (!tabberArgs) { tabberArgs = {};}
+oldOnLoad = window.onload; if (typeof window.onload != 'function') { window.onload = function() { tabberAutomatic(tabberArgs);};} else { window.onload = function() { oldOnLoad(); tabberAutomatic(tabberArgs);};}
+}
+if (typeof tabberOptions == 'undefined') { tabberAutomaticOnLoad();} else { if (!tabberOptions['manualStartup']) { tabberAutomaticOnLoad(tabberOptions);}
+}
+
+//-->
+</script>
+
+
+<style type="text/css">
+/*--------------------------------------------------
+  REQUIRED to hide the non-active tab content.
+  But do not hide them in the print stylesheet!
+  --------------------------------------------------*/
+.tabberlive .tabbertabhide {
+ display:none;
+}
+
+/*--------------------------------------------------
+  .tabber = before the tabber interface is set up
+  .tabberlive = after the tabber interface is set up
+  --------------------------------------------------*/
+.tabber {
+}
+.tabberlive {
+ margin-top:1em;
+}
+
+/*--------------------------------------------------
+  ul.tabbernav = the tab navigation list
+  li.tabberactive = the active tab
+  --------------------------------------------------*/
+ul.tabbernav
+{
+ margin:0;
+ padding: 3px 0;
+ border-bottom: 1px solid #778;
+ font: bold 12px Verdana, sans-serif;
+}
+
+ul.tabbernav li
+{
+ list-style: none;
+ margin: 0;
+ display: inline;
+}
+
+ul.tabbernav li a
+{
+ padding: 3px 0.5em;
+ margin-left: 3px;
+ border: 1px solid #778;
+ border-bottom: none;
+ background: #DDE;
+ text-decoration: none;
+}
+
+ul.tabbernav li a:link { color: #448; }
+ul.tabbernav li a:visited { color: #667; }
+
+ul.tabbernav li a:hover
+{
+ color: #000;
+ background: #AAE;
+ border-color: #227;
+}
+
+ul.tabbernav li.tabberactive a
+{
+ background-color: #fff;
+ border-bottom: 1px solid #fff;
+}
+
+ul.tabbernav li.tabberactive a:hover
+{
+ color: #000;
+ background: white;
+ border-bottom: 1px solid white;
+}
+
+/*--------------------------------------------------
+  .tabbertab = the tab content
+  Add style only after the tabber interface is set up (.tabberlive)
+  --------------------------------------------------*/
+.tabberlive .tabbertab {
+ padding:5px;
+ border:1px solid #aaa;
+ border-top:0;
+
+ /* If you don't want the tab size changing whenever a tab is changed
+    you can set a fixed height */
+
+ /* height:200px; */
+
+ /* If you set a fix height set overflow to auto and you will get a
+    scrollbar when necessary */
+
+ /* overflow:auto; */
+}
+
+/* If desired, hide the heading since a heading is provided by the tab */
+.tabberlive .tabbertab h2 {
+ display:none;
+}
+.tabberlive .tabbertab h3 {
+ display:none;
+}
+
+/* Example of using an ID to set different styles for the tabs on the page */
+.tabberlive#tab1 {
+}
+.tabberlive#tab2 {
+}
+.tabberlive#tab2 .tabbertab {
+ height:200px;
+ overflow:auto;
+}
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"4c8610d177","agent":"","transactionName":"NFZaMEVUV0ZVBkBeCQ0cbRZeGl9HG08=","applicationID":"3371695","errorBeacon":"bam.nr-data.net","applicationTime":147}</script>
+<meta name="robots" content="index,nofollow">
+
+<title>fr/ROS/Tutorials - ROS Wiki</title>
+<script type="text/javascript" src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/common.js"></script>
+
+<script type="text/javascript">
+<!--
+var search_hint = "Rechercher";
+//-->
+</script>
+
+
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/common.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="screen" href="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/screen.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="print" href="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/print.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="projection" href="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/projection.css">
+
+<!-- css only for MS IE6/IE7 browsers -->
+<!--[if lt IE 8]>
+   <link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="/moin_static197/rostheme/css/msie.css">
+<![endif]-->
+
+
+
+
+<link rel="canonical" href="http://wiki.ros.org/fr/ROS/Tutorials">
+
+<link rel="Start" href="http://wiki.ros.org/Documentation">
+<link rel="Alternate" title="Balisage Wiki" href="http://wiki.ros.org/fr/ROS/Tutorials?action=raw">
+<link rel="Alternate" media="print" title="Version à imprimer" href="http://wiki.ros.org/fr/ROS/Tutorials?action=print">
+<link rel="Up" href="http://wiki.ros.org/fr/ROS">
+<link rel="Search" href="http://wiki.ros.org/FindPage">
+<link rel="Index" href="http://wiki.ros.org/TitleIndex">
+<link rel="Glossary" href="http://wiki.ros.org/WordIndex">
+<link rel="Help" href="http://wiki.ros.org/HelpOnFormatting">
+</head>
+
+<body dir="ltr" lang="fr">
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5950817-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+<script type="text/javascript">
+<!--// Initialize search form
+var f = document.getElementById('searchform');
+if(f) f.getElementsByTagName('label')[0].style.display = 'none';
+var e = document.getElementById('searchinput');
+if(e) {
+  searchChange(e);
+  searchBlur(e);
+}
+
+function handleSubmit() {
+  var f = document.getElementById('searchform');
+  var t = document.getElementById('searchinput');
+  var r = document.getElementById('real_searchinput');
+
+  //alert("handleSubmit "+ t.value);
+  if(t.value.match(/review/)) {
+    r.value = t.value;
+  } else {
+    //r.value = t.value + " -PackageReviewCategory -StackReviewCategory -M3Review -DocReview -ApiReview -HelpOn -BadContent -LocalSpellingWords";
+    r.value = t.value + " -PackageReviewCategory -StackReviewCategory -DocReview -ApiReview";
+  }
+  //return validate(f);
+}
+//-->
+</script>
+
+<div id="dpage">
+  <div id="dpage-inner">
+    <div id="header"><div id="topnav">
+
+<!-- Alert box -->
+<!-- To enable/disable the alert box, uncomment/comment the block below and update the content below the button. -->
+<!--
+    <div class="alert alert-info alert-dismissable" style="text-align: center;">
+<script>
+jQuery(function( $ ){
+    alert_box_name = 'roswiki_10year_montage'
+    state = localStorage.getItem(alert_box_name);
+    if (!state) {
+      localStorage.setItem(alert_box_name, 'open');
+    }
+    state = localStorage.getItem(alert_box_name);
+    if (state == 'closed') {
+        $( '#topnav .alert' ).hide();
+    }
+    $( '.close' ).click(function () {
+	console.log('in .close.click');
+        localStorage.setItem(alert_box_name, 'closed');
+        $( '#topnav .alert' ).hide();
+  });
+});
+</script>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <a href="https://events.osrfoundation.org/civicrm/?page=CiviCRM&q=civicrm/petition/sign&sid=9&reset=1">Submit your video clips to be included in the ROS 10 Year Montage!<br>
+      The deadline for submission is October 15th.</a>.
+    </div>
+-->
+<!-- End Alert box -->
+
+      <table id="topnav-table">
+        <tbody><tr>
+          <td width="300" valign="top"><a href="http://wiki.ros.org/"><img src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/ros_org.png" alt="ros.org" width="238" height="51" border="0"></a></td>
+          <td width="500" valign="middle">
+            <a href="http://www.ros.org/about-ros">About</a>
+            |
+            <a href="http://wiki.ros.org/Support">Support</a>
+            |
+            <a href="http://discourse.ros.org/">Discussion Forum</a>
+            |
+            <a href="http://status.ros.org/">Service Status</a>
+            |
+            <a href="http://answers.ros.org/">Q&amp;A answers.ros.org</a>
+
+<!--<a href="http://roscon.ros.org/2016/"><img align="middle" style="padding-left: 15px;" src="http://ros.org/images/roscon_wiki_header.jpg" width="133" height="65" alt="ROSCon 2016" /></a>
+-->
+
+<!-- <a href="https://events.osrfoundation.org/ros-kong-2014/"><img align="middle" style="padding-left: 15px;" src="http://ros.org/images/ros_kong_2014_badge.png" width="133" height="38" alt="roskong" /></a>
+-->
+<!--a href="https://events.osrfoundation.org/ros-kong-2014/"><img align="middle" style="padding-left: 15px;" src="http://imgur.com/eMzUJVe.png" width="133" height="38" alt="roskong" /></a-->
+          </td>
+
+          <td valign="middle" align="right">
+
+<script language="Javascript">
+
+function Searchy(theButton){
+
+theForm = theButton.form;
+newID = theForm.input.value;
+theForm.q.value = newID;
+theForm.input.value=theForm.input.value
+
+}
+</script>
+
+
+<form action="http://www.ros.org/search/index.html" id="cse">
+  <div>
+    <label>Search:</label>
+    <input name="cx" value="018259903093183594226:txvzw9fat6w" type="hidden">
+    <input name="cof" value="FORID:11;NB:1" type="hidden">
+    <input name="filter" value="0" type="hidden">
+    <input name="num" value="10" type="hidden">
+
+    <input name="ie" value="UTF-8" type="hidden">
+    <input name="input" id="input" autocomplete="on" style="width: 35%" type="text">
+    <input name="q" value="" type="hidden">
+    <input name="sa" value="Submit" onclick="Searchy(this)" type="submit">
+
+  </div>
+</form>
+
+         </td>
+      </tr>
+      <tr>
+        <td colspan="3" width="1024" height="53"><nobr><img src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/menu_left.png" alt="" width="17" height="53"><a href="http://wiki.ros.org/"><img src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/menu_documentation.png" alt="Documentation" width="237" height="53" border="0"></a><img src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/menu_spacer.png" width="69" height="53"><a href="http://www.ros.org/browse/"><img src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/menu_browse_software.png" alt="Browse Software" width="268" height="53" border="0"></a><img src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/menu_spacer.png" width="69" height="53"><a href="http://www.ros.org/news"><img src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/menu_news.png" alt="News" width="84" height="53" border="0"></a><img src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/menu_spacer.png" width="69" height="53"><a href="http://wiki.ros.org/ROS/Installation"><img src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/menu_download.png" alt="Download" width="151" height="53" border="0"></a><img src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/menu_right.png" width="60" height="53"></nobr></td>
+
+      </tr>
+    </tbody></table> <!-- topnav-table -->
+
+    </div> <!-- /#topav -->
+  </div> <!-- /#header -->
+
+
+<div id="header2">
+
+<ul id="pagelocation">
+<li><a href="http://wiki.ros.org/fr">fr</a></li><li><a href="http://wiki.ros.org/fr/ROS">ROS</a></li><li><a class="backlink" href="http://wiki.ros.org/action/fullsearch/fr/ROS/Tutorials?action=fullsearch&amp;context=180&amp;value=linkto%3A%22fr%2FROS%2FTutorials%22" rel="nofollow" title="Cliquez ici pour faire une recherche de ce titre dans les pages">Tutorials</a></li>
+</ul>
+
+<div id="locationline">
+</div>
+</div>
+
+<div id="sidebar">
+<div class="sidepanel">
+<h1>Wiki</h1>
+
+<ul id="navibar">
+<li class="wikilink"><a href="http://wiki.ros.org/Distributions">Distributions</a></li><li class="wikilink"><a href="http://wiki.ros.org/ROS/Installation">ROS/Installation</a></li><li class="wikilink"><a href="http://wiki.ros.org/ROS/Tutorials">ROS/Tutorials</a></li><li class="wikilink"><a href="http://wiki.ros.org/RecentChanges">RecentChanges</a></li><li class="current"><a href="http://wiki.ros.org/fr/ROS/Tutorials">fr/ROS/Tutorials</a></li>
+</ul>
+
+</div>
+<div class="sidepanel">
+<h1>Page</h1>
+<ul class="editbar"><li><span class="disabled">Page immuable</span></li><li class="toggleCommentsButton" style="display:none;"><a href="#" class="nbcomment" onclick="toggleComments();return false;">Commentaires</a></li><li><a class="nbinfo" href="http://wiki.ros.org/action/info/fr/ROS/Tutorials?action=info" rel="nofollow">Informations</a></li><li><a class="nbattachments" href="http://wiki.ros.org/action/AttachFile/fr/ROS/Tutorials?action=AttachFile" rel="nofollow">Pièces jointes</a></li><li>
+<form class="actionsmenu" method="GET" action="/fr/ROS/Tutorials">
+<div>
+    
+    <select name="action" onchange="if ((this.selectedIndex != 0) &amp;&amp;
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="show" selected="selected">Autres actions :</option><option value="raw">Code source</option>
+<option value="print">Version à imprimer</option>
+<option value="RenderAsDocbook">Afficher en Docbook</option>
+<option value="show" disabled="disabled" class="disabled">Effacer le cache</option>
+<option value="show" disabled="disabled" class="disabled">------------------------</option>
+<option value="SpellCheck">Vérifier l'orthographe</option>
+<option value="LikePages">Pages similaires</option>
+<option value="LocalSiteMap">Carte locale du site</option>
+<option value="show" disabled="disabled" class="disabled">------------------------</option>
+<option value="RenamePage" disabled="disabled" class="disabled">Renommer la page</option>
+<option value="CopyPage">Copier la page</option>
+<option value="DeletePage" disabled="disabled" class="disabled">Supprimer la page</option>
+<option value="show" disabled="disabled" class="disabled">------------------------</option>
+<option value="MyPages">Ma page</option>
+<option value="show" disabled="disabled" class="disabled">Abonner un utilisateur</option>
+<option value="show" disabled="disabled" class="disabled">------------------------</option>
+<option value="show" disabled="disabled" class="disabled">Dépolluer</option>
+<option value="show" disabled="disabled" class="disabled">Retour à cette version</option>
+<option value="PackagePages">Pages des paquets</option>
+<option value="SyncPages">Synchroniser les pages</option>
+<option value="show" disabled="disabled" class="disabled">------------------------</option>
+<option value="CreatePdfDocument">CreatePdfDocument</option>
+<option value="Load">Charger</option>
+<option value="RawFile">RawFile</option>
+<option value="Save">Enregistrer</option>
+<option value="SlideShow">SlideShow</option>
+    </select>
+    
+    
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('Autres actions :');
+//-->
+</script>
+</form>
+</li></ul>
+
+</div>
+<div class="sidepanel">
+<h1>Utilisateur</h1>
+<ul id="username"><li><a href="http://wiki.ros.org/action/login/fr/ROS/Tutorials?action=login" id="login" rel="nofollow">Connexion</a></li></ul>
+</div>
+</div>
+
+<div id="page" dir="ltr" lang="en">
+
+<div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+<span class="anchor" id="line-1"></span><p class="line867"><strong>Non-Débutant</strong>: Si vous êtes déjà assez familier avec <tt class="backtick">ROS</tt> <a href="http://wiki.ros.org/fuerte">fuerte</a> ou des versions antérieurs et souhaitez seulement explorer le nouveau système de construction pour <a href="http://wiki.ros.org/groovy">groovy</a> et <a href="http://wiki.ros.org/hydro">hydro</a> appelé <a href="http://wiki.ros.org/catkin">catkin</a>, vous pouvez passer directement au <a href="http://wiki.ros.org/catkin/Tutorials">tutoriel catkin ici</a>. Cependant il est toujours bon de réviser ses fondamentaux et les tutoriels <tt class="backtick">Niveau&nbsp;Débutant</tt> permettent de découvrir toutes les nouvelles fonctionnalités. <span class="anchor" id="line-2"></span><span class="anchor" id="line-3"></span></p><p class="line867"><strong>Si vous êtes nouveau sur Linux</strong>:
+ Vous trouverez peut-être utile de commencer par faire un rapide 
+tutoriel sur les outils communs en ligne de commande pour Linux. Un bon 
+est<a class="http" href="http://fr.openclassrooms.com/informatique/cours/reprenez-le-controle-a-l-aide-de-linux">ici</a>. <span class="anchor" id="line-4"></span><span class="anchor" id="line-5"></span></p><p class="line867">
+</p><h2 id="Niveau_D.2BAOk-butant">Niveau Débutant</h2>
+<span class="anchor" id="line-6"></span><span class="anchor" id="line-7"></span><p class="line867"></p><ol><li><a href="http://wiki.ros.org/fr/ROS/Tutorials/InstallingandConfiguringROSEnvironment">Installation et Configuration de Votre Environment ROS</a><p><span class="anchor" id="line-1-1"></span>Ce tutoriel vous guide à travers l'installation de ROS et la configuration de votre environnement ROS pour votre ordinateur. </p></li><li><a href="http://wiki.ros.org/fr/ROS/Tutorials/NavigatingTheFilesystem">Navigation dans le Système de fichier ROS</a><p><span class="anchor" id="line-1-2"></span>Ce tutoriel introduit les concepts du système de fichiers ROS, et couvre l'usage des commandes de roscd, rosls,et <a href="http://wiki.ros.org/rospack">rospack</a> </p></li><li><a href="http://wiki.ros.org/fr/ROS/Tutorials/CreatingPackage">Créer un package ROS</a><p><span class="anchor" id="line-1-3"></span>Ce tutoriel présente l'utilisation de <a href="http://wiki.ros.org/roscreate">roscreate-pkg</a> ou <a href="http://wiki.ros.org/catkin">catkin</a> pour créer un nouveau package et <a href="http://wiki.ros.org/rospack">rospack</a> pour lister les dépendances des packages. </p></li><li><a href="http://wiki.ros.org/fr/ROS/Tutorials/BuildingPackages">Construire un package ROS</a><p><span class="anchor" id="line-1-4"></span>Ce tutoriel détaille la création d'un package ROS à l'aide d'un ensemble d'outils ROS. </p></li><li><a href="http://wiki.ros.org/fr/ROS/Tutorials/UnderstandingNodes">Comprendre les 'nodes' ROS</a><p><span class="anchor" id="line-1-5"></span>Ce tutoriel introduit les concepts de ROS graph et l'utilisation des outils en ligne de commande <a href="http://wiki.ros.org/roscore">roscore</a>, <a href="http://wiki.ros.org/rosnode">rosnode</a>, et <a href="http://wiki.ros.org/rosrun">rosrun</a>. </p></li><li><a href="http://wiki.ros.org/fr/ROS/Tutorials/UnderstandingTopics">Comprendre les Topics ROS</a><p><span class="anchor" id="line-1-6"></span>Ce tutoriel introduit les concepts de Topics sous ROS ainsi que l'utilisation des outils en ligne de commande <a href="http://wiki.ros.org/rostopic">rostopic</a> et <a href="http://wiki.ros.org/rqt_plot">rqt_plot</a>. </p></li><li><a class="nonexistent" href="http://wiki.ros.org/fr/ROS/Tutorials/UnderstandingServicesParams">No Title</a><p><span class="anchor" id="line-1-7"></span>No Description </p></li></ol><p class="line874"> <span class="anchor" id="line-8"></span><span class="anchor" id="line-9"></span></p><p class="line874">See also:  <span class="anchor" id="line-10"></span></p><ul><li><p class="line891"><a class="http" href="http://www.youtube.com/playlist?list=PLDC89965A56E6A8D6">ROS Tutorial Video Demos at ANU</a> <span class="anchor" id="line-11"></span></p></li><li><p class="line891"><a class="http" href="http://nootrix.com/category/robotics/robots-software/">NooTriX Step-by-Step ROS Tutorials</a> <span class="anchor" id="line-12"></span><span class="anchor" id="line-13"></span></p></li></ul><p class="line867"><strong>Now that you have completed the beginner level tutorials please answer this short <a class="http" href="http://spreadsheets.google.com/viewform?formkey=dGJVOVhyXzd0b0YxRHAxWDdIZmo4cGc6MA">questionnaire</a>.</strong> <span class="anchor" id="line-14"></span><span class="anchor" id="line-15"></span><span class="anchor" id="line-16"></span></p><p class="line867">
+</p><h2 id="Niveau_Interm.2BAOk-diaire">Niveau Intermédiaire</h2>
+<span class="anchor" id="line-17"></span><span class="anchor" id="line-18"></span><p class="line862">More client API tutorials can be found in the relevant package (<a href="http://wiki.ros.org/roscpp/Tutorials">roscpp</a>, <a href="http://wiki.ros.org/rospy/Tutorials">rospy</a>, <a href="http://wiki.ros.org/roslisp/Tutorials">roslisp</a>) <span class="anchor" id="line-19"></span><span class="anchor" id="line-20"></span></p><p class="line867"></p><ol><li><a href="http://wiki.ros.org/ROS/Tutorials/Creating%20a%20Package%20by%20Hand">Creating a ROS package by hand.</a><p><span class="anchor" id="line-1-8"></span>This tutorial explains how to manually create a ROS package. </p></li><li><a href="http://wiki.ros.org/ROS/Tutorials/rosdep">Managing System dependencies</a><p><span class="anchor" id="line-1-9"></span>This explains how to use <a href="http://wiki.ros.org/rosdep">rosdep</a> to install system dependencies. </p></li><li><a href="http://wiki.ros.org/ROS/Tutorials/Roslaunch%20tips%20for%20larger%20projects">Roslaunch tips for large projects</a><p><span class="anchor" id="line-1-10"></span>This
+ tutorial describes some tips for writing roslaunch files for large 
+projects.  The focus is on how to structure launch files so they may be 
+reused as much as possible in different situations.  We'll use the 
+2dnav_pr2 package as a case study. </p></li><li><a href="http://wiki.ros.org/ROS/Tutorials/MultipleMachines">Running ROS across multiple machines</a><p><span class="anchor" id="line-1-11"></span>This tutorial explains how to start a ROS system using two machines.  It explains the use of <tt class="backtick">ROS_MASTER_URI</tt> to configure multiple machines to use a single master. </p></li><li><a href="http://wiki.ros.org/ROS/Tutorials/DefiningCustomMessages">Defining Custom Messages</a><p><span class="anchor" id="line-1-12"></span>This tutorial will show you how to define your own custom message data types using the ROS <a href="http://wiki.ros.org/ROS/Message_Description_Language">Message Description Language</a>. </p></li><li><a href="http://wiki.ros.org/ROS/Tutorials/Using%20a%20C%2B%2B%20class%20in%20Python">Using a C++ class in Python</a><p><span class="anchor" id="line-1-13"></span>This tutorial illustrates a way to use a C++ class with ROS messages in Python. </p></li><li><a href="http://wiki.ros.org/ROS/Tutorials/Packaging%20your%20ROS%20project%20as%20a%20snap">Packaging your ROS project as a snap</a><p><span class="anchor" id="line-1-14"></span>This tutorial covers how to package and deploy your ROS project as a snap. </p></li><li><a href="http://wiki.ros.org/WritingTutorials">How to Write a Tutorial</a><p><span class="anchor" id="line-1-15"></span>This
+ tutorial covers useful template and macros for writing tutorials, along
+ with example tutorials that are available for guidance on <a href="http://wiki.ros.org/Documentation">ros.org</a> </p></li></ol><p class="line874"> <span class="anchor" id="line-21"></span><span class="anchor" id="line-22"></span></p><p class="line867">
+</p><h2 id="Using_ROS_on_your_custom_Robot">Using ROS on your custom Robot</h2>
+<span class="anchor" id="line-23"></span><ul><li><p class="line891"><a href="http://wiki.ros.org/urdf/Tutorials">Create your own URDF file</a> Creating a custom Universal Robot Description Format file <span class="anchor" id="line-24"></span></p></li><li><p class="line891"><a href="http://wiki.ros.org/ros_control">ros_control</a> Use ROS's standard controller framework for interfacing with hardware. <span class="anchor" id="line-25"></span></p></li><li><p class="line891"><a class="http" href="http://gazebosim.org/wiki/Tutorials/1.9/Using_A_URDF_In_Gazebo">Using a URDF in Gazebo</a> Add the necessary tags to get your robot in the Gazebo robotic simulator <span class="anchor" id="line-26"></span></p></li><li><p class="line891"><a class="http" href="http://moveit.ros.org/wiki/index.php/Groovy/Quick_Start">Setting up MoveIt!</a> Creating the configuration package to use the <a href="http://wiki.ros.org/moveit">MoveIt</a>! Motion Planning Framework <span class="anchor" id="line-27"></span><span class="anchor" id="line-28"></span></p></li></ul><p class="line867">
+</p><h2 id="Tutorials_pour_d.27autres_biblioth.2BAOg-ques">Tutorials pour d'autres bibliothèques</h2>
+<span class="anchor" id="line-29"></span><ul><li><p class="line891"><a href="http://wiki.ros.org/actionlib_tutorials/Tutorials">actionlib</a> <span class="anchor" id="line-30"></span></p></li><li><p class="line891"><a href="http://wiki.ros.org/pluginlib/Tutorials">pluginlib</a> <span class="anchor" id="line-31"></span></p></li><li><p class="line891"><a href="http://wiki.ros.org/stage/Tutorials">Stage</a> <span class="anchor" id="line-32"></span></p></li><li><p class="line891"><a href="http://wiki.ros.org/tf/Tutorials">TF</a> <span class="anchor" id="line-33"></span></p></li><li><p class="line891"><a href="http://wiki.ros.org/nodelet/Tutorials">nodelet</a> <span class="anchor" id="line-34"></span></p></li><li><p class="line891"><a href="http://wiki.ros.org/visualization/Tutorials">visualization/RViz</a> <span class="anchor" id="line-35"></span></p></li><li><p class="line891"><a href="http://wiki.ros.org/navigation/Tutorials">navigation</a> <span class="anchor" id="line-36"></span></p></li><li><p class="line891"><a href="http://wiki.ros.org/pcl/Tutorials">PCL with ROS</a> <span class="anchor" id="line-37"></span></p></li><li><p class="line891"><a href="http://wiki.ros.org/robot_model_tutorials">Robot model</a> <span class="anchor" id="line-38"></span><span class="anchor" id="line-39"></span></p></li></ul><p class="line867">
+</p><h2 id="ROS_Standards">ROS Standards</h2>
+<span class="anchor" id="line-40"></span><ul><li><p class="line891"><a href="http://wiki.ros.org/DevelopersGuide">ROS Developers Guide</a> Guidelines for coding style, package layout and much more <span class="anchor" id="line-41"></span></p></li><li><p class="line891"><a class="http" href="http://www.ros.org/reps/rep-0103.html">Standard Units of Measure and Coordinate Conventions</a> <span class="anchor" id="line-42"></span></p></li></ul><span class="anchor" id="bottom"></span></div></div>
+<div id="pagebottom"></div>
+</div>
+
+<p id="pageinfo" class="info" dir="ltr" lang="fr">Wiki: fr/ROS/Tutorials  (dernière édition le 2015-09-15 20:00:16 par <span title="VictorLamoine @ 170.212.182.93.rev.sfr.net[93.182.212.170]"><a class="nonexistent" href="http://wiki.ros.org/VictorLamoine" title="VictorLamoine @ 170.212.182.93.rev.sfr.net[93.182.212.170]">VictorLamoine</a></span>)</p>
+
+
+
+
+<div style="margin-top: 9px;" class="footer">
+Except where otherwise noted, the ROS wiki is licensed under the <br><a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a> | <a href="https://plus.google.com/113789706402978299308" rel="publisher">Find us on Google+</a>
+<hr style="margin-top: 10px;">
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+<a href="http://www.osrfoundation.org/"><img style="margin-top: -1px;" src="fr_ROS_Tutorials%20-%20ROS%20Wiki_fichiers/brought_by_horiz.png"><p></p></a>
+  </div>
+</div>
+</div>
+
+  </div> <!-- /#dpage-inner, /#dpage -->
+
+
+
+
+
+</body></html>
